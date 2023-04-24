@@ -18,9 +18,13 @@ public class Main {
         System.out.println("Меньше всего встречается символ:");
         maxMin = getMin(symbol);
         printValue(symbol, maxMin);
+
+        WordsChecker textSeparation = new WordsChecker(text);
+        System.out.println("Есть ли в тексте слово \"aute\"? " + textSeparation.hasWord("aute"));
+        System.out.println("Есть ли в тексте слово \"ide\"? " + textSeparation.hasWord("ide"));
     }
 
-    public static String text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor " +
+    private static String text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor " +
             "incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco " +
             "laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate " +
             "velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt " +
@@ -39,7 +43,7 @@ public class Main {
         }
     }
 
-    public static Integer getMin(Map<Character, Integer> symbol) {
+    private static Integer getMin(Map<Character, Integer> symbol) {
         int min = Integer.MAX_VALUE;
         for (Map.Entry<Character, Integer> s : symbol.entrySet()) {
             if (min > s.getValue()) {
@@ -49,7 +53,7 @@ public class Main {
         return min;
     }
 
-    public static Integer getMax(Map<Character, Integer> symbol) {
+    private static Integer getMax(Map<Character, Integer> symbol) {
         int max = Integer.MIN_VALUE;
         for (Map.Entry<Character, Integer> s : symbol.entrySet()) {
             if (s.getValue() > max) {
